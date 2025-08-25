@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTC-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <form method="Post" action="https://professores.unisanta.br/sobrino/scripts/mostra-v2.php">
+        <h1>Cadastro</h1>
+
+        <p>
+            <label for="email">E-mail</label><br>
+            <input type="email" name="email" id="email" size="20" placeholder="ex: abc@mail.com" required>
+        </p>
+        
+        <p>
+            <label for="tel">Telefone</label><br>
+            <input type="tel" name="tel" id="tel" size="11" placeholder="(__) _____-____">
+        </p>
+
+        <p>
+            <label for="mensagem">Mensagem</label><br>
+            <textarea name="mensagem" id="mensagem" cols="40" rows="5"></textarea>
+        </p>
+
+        <p>
+            <label for="cidade">Cidade</label><br>
+            <select name="cidade" id="cidade">
+                <option value="" disabled selected>Selecione...</option>
+                <option value="BT">Bertioga</option>
+                <option value="CB">Cubatão</option>
+                <option value="GU">Guarujá</option>
+                <option value="IT">Itanhaém</option>
+                <option value="MO">Monguaguá</option>
+                <option value="PR">Peruíbe</option>
+                <option value="PG">Praia Grande</option>
+                <option value="ST">Santos</option>
+                <option value="SV">São Vicente</option>
+            </select>
+        </p>
+
+        <fieldset>
+            <legend>Você é aluno?</legend>
+            <input type="radio" name="aluno" id="s-aluno" value="S" required><label for="s-aluno">Sim</label> 
+            <input type="radio" name="aluno" id="n-aluno" value="N"><label for="n-aluno">Não</label>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Linguagens Favoritas</legend>             
+            <input type="checkbox" name="LinguagensFavoritas[]" id="html" value="html"><label for="html">HTML</label> <br>
+            <input type="checkbox" name="LinguagensFavoritas[]" id="css" value="css"><label for="css">CSS</label><br>
+            <input type="checkbox" name="LinguagensFavoritas[]" id="JavaScript" value="js"><label for="JavaScript">JavaScript</label><br>
+            <input type="checkbox" name="LinguagensFavoritas[]" id="Java" value="j"><label for="Java">Java</label><br>
+            <input type="checkbox" name="LinguagensFavoritas[]" id="csharp" value="c"><label for="csharp">C#</label><br>
+        </fieldset>
+
+        <button>Cadastrar-se</button>
+
+    </form>
+
+
+</body>
+
+
+</html>

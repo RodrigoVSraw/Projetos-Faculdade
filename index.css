@@ -1,0 +1,50 @@
+.info {
+    color : red;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  
+}
+
+h1 {
+    font-size: 25px;
+    color: #00f;
+}
+
+h2 {
+    font-size: 21px;
+    color: var(--corPrim);
+}
+
+a {
+    color: #000;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--corPrim);
+}
+
+img {
+    float: right;
+    margin: 0 0 20px 20px;
+    border: 3px solid #000;
+    padding: 4px;
+}
+
+ul li a {
+    background-color: yellow;
+}
+
+a[href="http://www.unisanta.br"] {
+    background-color: greenyellow;
+}
+
+#titulo-exclusivo {
+    background-color: yellow;
+}
+
+:root {
+    --corPrim: #bd0e08;
+    --corSec: yellow;
+}

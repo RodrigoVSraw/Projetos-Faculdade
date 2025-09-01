@@ -15,8 +15,8 @@ Cada pasta corresponde a uma matéria e dentro delas estão os projetos organiza
 
 ## 💻 Orientação a Objetos
 - [Aula 1](Orientacao-Objeto/Aula1) → Introdução à Programação Orientada a Objetos
-- [Aula 2](Orientacao-Objeto/Aula2) → Classes, Objetos e Métodos
-- [Aula 3](Orientacao-Objeto/Aula3) → Herança e Polimorfismo  
+- [Aula 2](Orientacao-Objeto/Aula2) → 
+- [Aula 3](Orientacao-Objeto/Aula3) →  
 
 ---
 

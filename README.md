@@ -1,9 +1,32 @@
-Este repositório contém meus projetos da faculdade.
+# 📚 Projetos da Faculdade
 
-## Faculdade - Desenvolvimento Web
-- [Aula 1](Aula1) → Aprendendo o básico
-- [Aula 2](Aula2) → Construindo uma página de cadastro
-- [Aula 3](Aula3) → Aplicando CSS a página de cadastro, e usando bibliotecas no GitHub (CDN)
+Bem-vindo(a)! 👋  
+Este repositório reúne meus projetos desenvolvidos durante a faculdade.  
+Cada pasta corresponde a uma matéria e dentro delas estão os projetos organizados por aula.  
 
-## Faculdade - Orientação Objeto
-- [Aula 1](Aula1) → 
+---
+
+## 🌐 Desenvolvimento Web
+- [Aula 1](Desenvolvimento-Web/Aula1) → Aprendendo o básico de HTML
+- [Aula 2](Desenvolvimento-Web/Aula2) → Construindo uma página de cadastro
+- [Aula 3](Desenvolvimento-Web/Aula3) → Aplicando CSS e usando bibliotecas externas (CDN)
+
+---
+
+## 💻 Orientação a Objetos
+- [Aula 1](Orientacao-Objeto/Aula1) → Introdução à Programação Orientada a Objetos
+- [Aula 2](Orientacao-Objeto/Aula2) → Classes, Objetos e Métodos
+- [Aula 3](Orientacao-Objeto/Aula3) → Herança e Polimorfismo  
+
+---
+
+## 🚀 Como navegar
+1. Clique no link de cada aula para abrir a pasta do projeto.  
+2. Dentro da pasta você encontrará os arquivos do exercício/projeto.  
+3. Alguns projetos podem conter um `README.md` próprio explicando detalhes extras.  
+
+---
+
+## 📌 Observações
+- Projetos desenvolvidos como parte das aulas da faculdade.  
+- Este repositório será atualizado conforme novas aulas e projetos forem adicionados.  

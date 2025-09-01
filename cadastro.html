@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTC-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+    <form method="Post" action="https://professores.unisanta.br/sobrino/scripts/mostra-v2.php">
+        <h1>Cadastro</h1>
+
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" placeholder="Ex: abc@mail.com" required>
+
+        <label for="data-nasc">Data de nascimento</label>
+        <input type="date" name="data-nasc" id="data-nasc"  required>
+
+        <label for="cpf">CPF</label>
+        <input type="text" name="cpf" id="cpf" placeholder="Ex: 111.222.333-44" data-mask="000.000.000-00" data-mask-validation="cpf" required>
+        
+        <label for="tel">Telefone</label>
+        <input type="text" name="tel" id="tel" placeholder="(__) _____-____" data-mask="(00) 00000-0000">
+
+        <label for="mensagem">Mensagem</label>
+        <textarea name="mensagem" id="mensagem"></textarea>
+
+        <label for="cidade">Cidade</label>
+        <select name="cidade" id="cidade">
+            <option value="" disabled selected>Selecione...</option>
+            <option value="BT">Bertioga</option>
+            <option value="CB">Cubatão</option>
+            <option value="GU">Guarujá</option>
+            <option value="IT">Itanhaém</option>
+            <option value="MO">Monguaguá</option>
+            <option value="PR">Peruíbe</option>
+            <option value="PG">Praia Grande</option>
+            <option value="ST">Santos</option>
+            <option value="SV">São Vicente</option>
+        </select>
+
+        <fieldset>
+            <legend>Você é aluno?</legend>
+            <input type="radio" name="aluno" id="s-aluno" value="S" required><label for="s-aluno">Sim</label> 
+            <input type="radio" name="aluno" id="n-aluno" value="N"><label for="n-aluno">Não</label>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Linguagens Favoritas</legend>
+                         
+            <input type="checkbox" name="LinguagensFavoritas[]" id="html" value="html"><label for="html">HTML</label>
+
+            <input type="checkbox" name="LinguagensFavoritas[]" id="css" value="css"><label for="css">CSS</label>
+
+            <input type="checkbox" name="LinguagensFavoritas[]" id="JavaScript" value="js"><label for="JavaScript">JavaScript</label>
+
+            <input type="checkbox" name="LinguagensFavoritas[]" id="Java" value="j"><label for="Java">Java</label>
+
+            <input type="checkbox" name="LinguagensFavoritas[]" id="csharp" value="c"><label for="csharp">C#</label>
+        </fieldset>
+
+        <button>Cadastrar-se</button>
+
+    </form>
+
+    <script src="dist/masky.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/masky-js/dist/masky.min.js"></script> -->
+
+</body>
+
+
+</html>

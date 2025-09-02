@@ -1,4 +1,4 @@
-# 📚 Projetos da Faculdade
+# 📚 *Projetos da Faculdade*
 
 Bem-vindo(a)! 👋  
 Este repositório reúne meus projetos desenvolvidos durante a faculdade.  

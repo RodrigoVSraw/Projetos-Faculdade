@@ -10,6 +10,7 @@ Cada pasta corresponde a uma matéria e dentro delas estão os projetos organiza
 - [Aula 1](Desenvolvimento-Web/Aula1) → Aprendendo o básico de **HTML**
 - [Aula 2](Desenvolvimento-Web/Aula2) → Construindo uma página de cadastro
 - [Aula 3](Desenvolvimento-Web/Aula3) → Aplicando **CSS** e usando bibliotecas externas **(CDN)**
+- [Projeto1](Desenvolvimento-Web/Projeto1) → Portifólio interativo usando os conceitos aprendidos
 
 ---
 

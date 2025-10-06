@@ -14,9 +14,9 @@ Cada pasta corresponde a uma matéria e dentro delas estão os projetos organiza
 ---
 
 ## 💻 *Orientação a Objetos*
-- [Aula 1](Orientacao-Objeto/Aula1) → Introdução à Programação Orientada a Objetos
-- [Aula 2](Orientacao-Objeto/Aula2) → 
-- [Aula 3](Orientacao-Objeto/Aula3) →
+- [Aula 1](Orientacão-Objeto/Aula1) → Introdução à Programação Orientada a Objetos
+- [Aula 2](Orientacão-Objeto/Aula2) → 
+- [Aula 3](Orientacão-Objeto/Aula3) →
   
 ---
 

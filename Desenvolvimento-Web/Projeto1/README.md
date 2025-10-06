@@ -1,5 +1,5 @@
-#PROJETO PORTIFÓLIO
+# PROJETO PORTIFÓLIO
 
-##PREVIEW DO PROJETO
+## PREVIEW DO PROJETO
 
 [!Imagem do Portifólio](ImagemPortifolioP.jpeg)

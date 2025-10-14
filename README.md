@@ -27,6 +27,11 @@ Cada pasta corresponde a uma matéria e dentro delas estão os projetos organiza
 
 ---
 
+## 💻 *Banco de Dados*
+- [Aula 1](Banco-Dados/Aula1) → Aprendendo o Básico 
+
+---
+
 ## 🚀 Como navegar
 1. Clique no link de cada aula para abrir a pasta do projeto.  
 2. Dentro da pasta você encontrará os arquivos do exercício/projeto.  

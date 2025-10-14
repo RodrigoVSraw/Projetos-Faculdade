@@ -4,7 +4,7 @@ create database  exemplo
 --Exclui um banco de dados
 drop database exemplo
 
---Troca o banco de dados em que as tabelas s„o salvas
+--Troca o banco de dados em que as tabelas s√£o salvas
 use exemplo
 
 --Cria uma tabela

@@ -27,7 +27,7 @@ Cada pasta corresponde a uma matéria e dentro delas estão os projetos organiza
 
 ---
 
-## 💻 *Banco de Dados*
+## 🗂 *Banco de Dados*
 - [Aula 1](Banco-Dados/Aula1) → Aprendendo o Básico 
 
 ---

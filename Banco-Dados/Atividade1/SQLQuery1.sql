@@ -1,8 +1,8 @@
-CREATE DATABASE TP1
+CREATE DATABASE VENDALIVRO
 
-use TP1
+use VENDALIVRO
 
-create table Usuário 
+create table Usuario 
 (
 	ds_email varchar not null,
 	nm_usuario varchar,
@@ -10,10 +10,10 @@ create table Usuário
 	cd_assinatura int not null
 )
 
-alter table Usuário
+alter table Usuario
 add primary key (ds_email)
 
-alter table Usuário
+alter table Usuario
 add foreign key (cd_assinatura)
 references Assinatura
 
@@ -28,7 +28,7 @@ create table Assinatura
 alter table Assinatura
 add primary key (cd_assinatura)
 
-create table Transação 
+create table Transacao 
 (
 	cd_transacao int not null,
 	dt_transacao date,
@@ -38,16 +38,16 @@ create table Transação
 	cd_livro int not null
 )
 
-alter table Transação
+alter table Transacao
 add primary key (cd_transacao)
 
-alter table Transação
+alter table Transacao
 add foreign key (cd_livro)
 references Livro
 
-alter table Transação
+alter table Transacao
 add foreign key (cd_usuario)
-references Usuário
+references Usuario
 
 create table Livro
 (
@@ -62,7 +62,7 @@ create table Livro
 alter table Livro 
 add primary key (cd_livro)
 
-create table Avaliação
+create table AvaliaÃ§Ã£o
 (
 	cd_avaliacao int not null,
 	ds_comentario varchar,
@@ -70,15 +70,16 @@ create table Avaliação
 	cd_usuario varchar not null
 )
 
-alter table Avaliação
+alter table Avaliacao
 add primary key (cd_avaliacao)
 
-alter table Avaliação
+alter table Avaliacao
 add foreign key (cd_livro)
 references Livro
 
-alter table Avaliação
+alter table Avaliacao
 add foreign key (cd_usuario)
-references Usuário
+references Usuario
+
 
 

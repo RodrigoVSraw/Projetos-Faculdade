@@ -62,7 +62,7 @@ create table Livro
 alter table Livro 
 add primary key (cd_livro)
 
-create table Avaliação
+create table Avaliacao
 (
 	cd_avaliacao int not null,
 	ds_comentario varchar,
@@ -80,6 +80,7 @@ references Livro
 alter table Avaliacao
 add foreign key (cd_usuario)
 references Usuario
+
 
 
 

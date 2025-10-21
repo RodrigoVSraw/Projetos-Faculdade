@@ -63,6 +63,9 @@ CREATE TABLE Tabela2
 	qt_idade INT CHECK (qt_idade >= 18)
 )
 
+-- ALTERAÇÃO
+ALTER TABLE Tabela2
+
 
 -- ##NOT NULL##
 
@@ -88,6 +91,43 @@ CREATE TABLE Tabela2
 -- ALTERAÇÂO
 ALTER TABLE Tabela2
 ADD CONSTRAINT vl_produto DEFAULT 0
+
+-- #######################################
+
+-- INSERT
+
+-- ##DECLARANDO COLUNAS##
+-- PODE TROCAR AS ORDENS DAS COLUNAS, E NÃO PRECISA DE VALOR EM TODAS
+INSERT INTO TB1
+	(C1, C2, C3, C4)
+VALUES (3, 'x', 50, 0)
+
+INSERT INTO TB1
+	(C4, C2, C3)
+VALUES (3, 'x', 50)
+
+	
+-- ##SEM DECLARAR AS COLUNAS##
+-- PRECISA COLOCAR VALOR EM TODAS AS COLUNAS, E EM ORDEM
+INSERT INTO TB1
+VALUES (3, 'x', 50, 0)
+
+-- ##CONSULTA DE DADOS##
+
+-- SELECT BÁSICO
+
+-- ESTRUTURA 1 - Seleciona as colunas que são necessárias
+SELECT C1, C2, C3, C4
+FROM TB1
+
+-- ESTRUTURA 2 - Seleciona todas as colunas
+SELECT *
+FROM TB1
+
+
+
+
+
 
 
 

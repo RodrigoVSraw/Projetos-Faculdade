@@ -7,20 +7,20 @@ use Aula2
 
 -- ##PRIMARY KEY##
 
--- CRIAÇÃO
+-- CRIAÃ‡ÃƒO
 create table Tabela1 (
 	cd_tabela1 INT PRIMARY KEY,
 	nm_tabela1 VARCHAR(50)
 )
 
--- ALTERAÇÃO
+-- ALTERAÃ‡ÃƒO
 alter table Tabela1 
 ADD PRIMARY KEY cd_tabela1
 
 
 -- ##FOREIGN KEY##
 
--- CRIAÇÃO
+-- CRIAÃ‡ÃƒO
 CREATE TABLE Tabela2
 (
 	cd_tabela2 INT PRIMARY KEY,
@@ -34,7 +34,7 @@ CREATE TABLE Tabela2
 	cd_tabela1 INT FOREIGN KEY REFERENCES Tabela1
 )
 
--- ALTERAÇÃO
+-- ALTERAÃ‡ÃƒO
 ALTER TABLE Tabela2 
 ADD FOREIGN KEY (cd_tabela1)
 REFERENCES Tabela1
@@ -42,20 +42,20 @@ REFERENCES Tabela1
 
 -- ##UNIQUE##
 
--- CRIAÇÃO
+-- CRIAÃ‡ÃƒO
 CREATE TABLE Tabela2
 (
 	cd_tabela2 INT PRIMARY KEY,
 	ds_email VARCHAR(100) UNIQUE
 )
 
--- ALTERAÇÃO
+-- ALTERAÃ‡ÃƒO
 ALTER TABLE Tabela4 ADD CONSTRAINT UQ_Email UNIQUE (ds_email)
 
 
 -- ##CHECK##
 
--- CRIAÇÃO
+-- CRIAÃ‡ÃƒO
 CREATE TABLE Tabela2
 (
 	cd_tabela2 INT PRIMARY KEY,
@@ -66,26 +66,26 @@ CREATE TABLE Tabela2
 
 -- ##NOT NULL##
 
--- CRIAÇÃO
+-- CRIAÃ‡ÃƒO
 CREATE TABLE Tabela2
 (
 	cd_tabela2 INT PRIMARY KEY,
 	nm_tabela2 VARCHAR NOT NULL,
 )
 
--- ALTERAÇÃO
+-- ALTERAÃ‡ÃƒO
 
 
 -- ##DEFAULT##
 
--- CRIAÇÃO
+-- CRIAÃ‡ÃƒO
 CREATE TABLE Tabela2
 (
 	cd_tabela2 INT PRIMARY KEY,
 	vl_produto DECIMAL(10, 2) DEFAULT 0
 )
 
--- ALTERAÇÂO
+-- ALTERAÃ‡Ã‚O
 ALTER TABLE Tabela2
 ADD CONSTRAINT vl_produto DEFAULT 0
 

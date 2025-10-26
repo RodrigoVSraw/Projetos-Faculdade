@@ -66,7 +66,7 @@ VALUES
 
 INSERT INTO PLANO
 VALUES
-	(1, 'Básico', '', ''),
+	(1, 'BÃ¡sico', '', ''),
 	(2, 'Premium', '', '')
 
 INSERT INTO CONTRATO (cd_contrato, cd_cnpj_cliente, cd_cnpj_seguradora)

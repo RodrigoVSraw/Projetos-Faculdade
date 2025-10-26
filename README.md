@@ -33,6 +33,7 @@ Cada pasta corresponde a uma matéria e dentro delas estão os projetos organiza
 - [Aula 1](Banco-Dados/Aula1) → Aprendendo o Básico
 - [Atividade1](Banco-Dados/Atividade1) → Colocando os primeiros conceitos em prática
 - [Aula 2](Banco-Dados/Aula2) → Tipos de Constraint, Insert e Select
+- [Atividade2](Banco-Dados/Atividade2) → Usando Insert e Select para contruir uma tabela demo e executando o programa
 
 ---
 

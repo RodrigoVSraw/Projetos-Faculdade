@@ -15,7 +15,7 @@ create table Seguradora (
 )
 
 create table Plano (
-	cd_plano int primary key identity(1,1), --Identity cria número automatico
+	cd_plano int primary key identity(1,1), --Identity cria nÃºmero automatico
 	nm_plano varchar(150) not null
 )
 
@@ -79,7 +79,7 @@ go
 -- Inserir planos
 INSERT INTO Plano (nm_plano) 
 VALUES 
-	('Plano Básico'),
+	('Plano BÃ¡sico'),
 	('Plano Standard'),
 	('Plano Premium'),
 	('Plano Familiar'),
@@ -101,7 +101,7 @@ VALUES
     ('2024-10-10', '01234567890123', '12345678901230');
 go
 
---Inserir apólices 
+--Inserir apÃ³lices 
 INSERT INTO Apolice (dt_validade, cd_plano, cd_contrato)
 VALUES 
     ('2026-02-01', 1, 1),

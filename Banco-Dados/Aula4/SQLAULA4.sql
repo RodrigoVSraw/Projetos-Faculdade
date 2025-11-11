@@ -21,7 +21,7 @@ create table Cliente (
 	nm_cliente varchar(100) not null,
 	ds_endereco varchar(150),
 	ds_telefone varchar(11),
-	sg_status varchar(10) check (sg_status = 'bom' or sg_status = 'médio' or sg_status = 'ruim'),
+	sg_status varchar(10) check (sg_status = 'bom' or sg_status = 'mÃ©dio' or sg_status = 'ruim'),
 	dt_nascimento date check (dt_nascimento < getdate()),
 	vl_limite money default 0
 )
@@ -49,16 +49,16 @@ go
 
 -- Inserir dados na tabela Categoria
 INSERT INTO Categoria (cd_categoria, nm_categoria) VALUES
-(1, 'Eletrônicos'),
+(1, 'EletrÃ´nicos'),
 (2, 'Roupas'),
 (3, 'Alimentos'),
-(4, 'Móveis'),
+(4, 'MÃ³veis'),
 (5, 'Livros'),
 (6, 'Brinquedos'),
-(7, 'Utensílios Domésticos'),
+(7, 'UtensÃ­lios DomÃ©sticos'),
 (8, 'Ferramentas'),
 (9, 'Produtos de Limpeza'),
-(10, 'Acessórios Esportivos');
+(10, 'AcessÃ³rios Esportivos');
 go
 
 -- Inserir dados na tabela Produto
@@ -66,38 +66,38 @@ INSERT INTO Produto (cd_produto, nm_produto, cd_categoria, vl_produto) VALUES
 (1, 'Smartphone', 1, 120),
 (2, 'Camiseta', 2, 45),
 (3, 'Arroz', 3, 56),
-(4, 'Sofá', 4, 190),
-(5, 'Livro de Ficção', 5, 1212),
-(6, 'Quebra-Cabeça', 6, 21),
-(7, 'Panela de Pressão', 7, 54),
+(4, 'SofÃ¡', 4, 190),
+(5, 'Livro de FicÃ§Ã£o', 5, 1212),
+(6, 'Quebra-CabeÃ§a', 6, 21),
+(7, 'Panela de PressÃ£o', 7, 54),
 (8, 'Furadeira', 8, 98),
 (9, 'Detergente', 9, 65),
-(10, 'Tênis', 10, 90),
+(10, 'TÃªnis', 10, 90),
 (11, 'Gabarito da P2 de Banco de Dados', 10, 5000);
 go
 
 -- Inserir dados na tabela Cliente
 INSERT INTO Cliente (cd_cliente, nm_cliente, ds_endereco, ds_telefone, sg_status, dt_nascimento, vl_limite) VALUES
-(1, 'João da Silva', 'Rua A, 123', '1122334455', 'bom', '1980-05-15', 500.00),
-(2, 'Maria Oliveira', 'Av. B, 456', '9988776655', 'médio', '1995-10-20', 300.00),
-(3, 'José Santos', 'Rua C, 789', '9988776655', 'ruim', '2000-02-10', 200.00),
+(1, 'JoÃ£o da Silva', 'Rua A, 123', '1122334455', 'bom', '1980-05-15', 500.00),
+(2, 'Maria Oliveira', 'Av. B, 456', '9988776655', 'mÃ©dio', '1995-10-20', 300.00),
+(3, 'JosÃ© Santos', 'Rua C, 789', '9988776655', 'ruim', '2000-02-10', 200.00),
 (4, 'Ana Pereira', 'Rua D, 321', '1122334455', 'bom', '1975-07-25', 1000.00),
-(5, 'Carlos Fernandes', 'Av. E, 654', '9988776655', 'médio', '1988-09-30', 700.00),
+(5, 'Carlos Fernandes', 'Av. E, 654', '9988776655', 'mÃ©dio', '1988-09-30', 700.00),
 (6, 'Amanda Souza', 'Rua F, 987', '1122334455', 'ruim', '1992-04-05', 400.00),
 (7, 'Pedro Costa', 'Av. G, 1234', '9988776655', 'bom', '1983-12-12', 800.00),
-(8, 'Laura Carvalho', 'Rua H, 567', '1122334455', 'médio', '1997-08-18', 600.00),
+(8, 'Laura Carvalho', 'Rua H, 567', '1122334455', 'mÃ©dio', '1997-08-18', 600.00),
 (9, 'Roberto Almeida', 'Av. I, 890', '9988776655', 'ruim', '2002-01-08', 300.00),
 (10, 'Fernanda Lima', 'Rua J, 1234', '1122334455', 'bom', '1972-03-22', 1200.00),
-(11, 'Mariana Rodrigues', 'Av. K, 5678', '9988776655', 'médio', '1985-11-28', 900.00),
+(11, 'Mariana Rodrigues', 'Av. K, 5678', '9988776655', 'mÃ©dio', '1985-11-28', 900.00),
 (12, 'Ricardo Nunes', 'Rua L, 4321', '1122334455', 'ruim', '1990-06-14', 200.00),
 (13, 'Isabela Gomes', 'Av. M, 9876', '9988776655', 'bom', '1978-09-03', 1500.00),
-(14, 'Felipe Barbosa', 'Rua N, 345', '1122334455', 'médio', '1993-02-17', 1000.00),
-(15, 'Patrícia Lima', 'Av. O, 6543', '9988776655', 'ruim', '1986-07-08', 500.00),
+(14, 'Felipe Barbosa', 'Rua N, 345', '1122334455', 'mÃ©dio', '1993-02-17', 1000.00),
+(15, 'PatrÃ­cia Lima', 'Av. O, 6543', '9988776655', 'ruim', '1986-07-08', 500.00),
 (16, 'Lucas Fernandes', 'Rua P, 9876', '1122334455', 'bom', '1981-01-30', 800.00),
-(17, 'Tatiane Almeida', 'Av. Q, 2345', '9988776655', 'médio', '1996-05-12', 600.00),
+(17, 'Tatiane Almeida', 'Av. Q, 2345', '9988776655', 'mÃ©dio', '1996-05-12', 600.00),
 (18, 'Bruno Oliveira', 'Rua R, 6543', '1122334455', 'ruim', '2001-08-20', 400.00),
 (19, 'Luana Pereira', 'Av. S, 8765', '9988776655', 'bom', '1974-04-26', 1300.00),
-(20, 'Gustavo Silva', 'Rua T, 3210', '1122334455', 'médio', '1987-10-10', 700.00);
+(20, 'Gustavo Silva', 'Rua T, 3210', '1122334455', 'mÃ©dio', '1987-10-10', 700.00);
 go
 
 -- Inserir dados na tabela Pedido
@@ -149,7 +149,7 @@ INSERT INTO ItemPedido (cd_produto, cd_pedido, qt_produto, vl_produto) VALUES
 go
 
 
--- Exercicíos TP4
+-- ExercicÃ­os TP4
 
 -- #1#
 SELECT * FROM Cliente
@@ -159,7 +159,7 @@ ORDER BY nm_cliente ASC
 
 -- #2#
 SELECT * FROM Produto WHERE cd_categoria in (
-	SELECT cd_categoria FROM Categoria WHERE nm_categoria = 'Eletrônicos'
+	SELECT cd_categoria FROM Categoria WHERE nm_categoria = 'EletrÃ´nicos'
 	)
 ORDER BY nm_produto ASC 
 
@@ -172,12 +172,12 @@ FROM
 	Cliente c
 WHERE p.cd_pedido = ip.cd_pedido
 AND p.cd_cliente = c.cd_cliente
-AND c.sg_status = 'médio';
+AND c.sg_status = 'mÃ©dio';
 
 -- OU
 SELECT SUM(qt_produto * vl_produto) FROM ItemPedido WHERE cd_pedido in (
 	SELECT cd_pedido FROM Pedido WHERE cd_cliente in (
-		SELECT cd_cliente FROM Cliente WHERE sg_status = 'médio'
+		SELECT cd_cliente FROM Cliente WHERE sg_status = 'mÃ©dio'
 		)
 	)
 

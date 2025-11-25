@@ -67,7 +67,7 @@ INSERT INTO Autor (cd_autor, nm_autor, dt_nascimento, ds_nacionalidade) VALUES
 -- Inserindo dados na tabela Categoria
 INSERT INTO Categoria (cd_categoria, nm_categoria) VALUES
 (1, 'Romance'),
-(2, 'Ficção Científica'),
+(2, 'FicÃ§Ã£o CientÃ­fica'),
 (3, 'Suspense'),
 (4, 'Poesia'),
 (5, 'Autoajuda'),
@@ -76,8 +76,8 @@ INSERT INTO Categoria (cd_categoria, nm_categoria) VALUES
 -- Inserindo dados na tabela Livro
 INSERT INTO Livro (cd_livro, nm_titulo, cd_autor, cd_categoria, vl_preco, qt_estoque) VALUES
 (1, 'Dom Casmurro', 1, 1, 35.90, 50),
-(2, 'Memórias Póstumas de Brás Cubas', 1, 1, 29.90, 30),
-(3, 'Grande Sertão: Veredas', 1, 1, 45.50, 20),
+(2, 'MemÃ³rias PÃ³stumas de BrÃ¡s Cubas', 1, 1, 29.90, 30),
+(3, 'Grande SertÃ£o: Veredas', 1, 1, 45.50, 20),
 (4, 'Sagarana', 1, 1, 27.80, 15),
 (5, 'Quincas Borba', 1, 1, 32.70, 25),
 (6, 'Claro Enigma', 1, 1, 28.40, 10),
@@ -88,17 +88,17 @@ INSERT INTO Livro (cd_livro, nm_titulo, cd_autor, cd_categoria, vl_preco, qt_est
 (11, 'It: A Coisa', 4, 3, 39.90, 55),
 (12, 'O Iluminado', 4, NULL, 36.80, 50),
 (13, '1984', 5, 2, 34.90, 70),
-(14, 'A Revolução dos Bichos', 5, 2, 25.50, 65);
+(14, 'A RevoluÃ§Ã£o dos Bichos', 5, 2, 25.50, 65);
 
 -- Inserindo dados na tabela Usuario
 INSERT INTO Usuario (cd_usuario, nm_usuario, ds_endereco, ds_telefone) VALUES
 (1, 'Maria Silva', 'Rua das Flores, 123', '11223344555'),
-(2, 'João Santos', 'Av. Principal, 456', '99887766555'),
+(2, 'JoÃ£o Santos', 'Av. Principal, 456', '99887766555'),
 (3, 'Ana Oliveira', 'Travessa das Palmeiras, 789', '55454332211'),
 (4, 'Pedro Souza', 'Rua dos Alpes, 321', '33669955858'),
 (5, 'Carla Lima', 'Av. Central, 789', '11445566757');
 
--- Inserindo dados na tabela Emprestimo (alguns empréstimos fictícios)
+-- Inserindo dados na tabela Emprestimo (alguns emprÃ©stimos fictÃ­cios)
 INSERT INTO Emprestimo (cd_emprestimo, cd_livro, cd_usuario, dt_emprestimo, dt_devolucao) VALUES
 (1, 1, 1, '2024-02-01', '2024-02-15'),
 (2, 4, 3, '2024-02-02', '2024-02-16'),
@@ -128,15 +128,15 @@ SELECT * FROM Emprestimo
 
 -- ##JOIN##
 SELECT * FROM Livro
--- Inner join mostra só oque tem relação entre as tabelas
+-- Inner join mostra sÃ³ oque tem relaÃ§Ã£o entre as tabelas
 SELECT * FROM Livro inner join Autor
 on Livro.cd_autor = Autor.cd_autor
 
--- Left join mostra todos os da esquerda mesmo os sem relação
+-- Left join mostra todos os da esquerda mesmo os sem relaÃ§Ã£o
 SELECT * FROM Livro left join Autor
 on Livro.cd_autor = Autor.cd_autor
 
--- Right join mostra todos os da direita mesmo os sem relação
+-- Right join mostra todos os da direita mesmo os sem relaÃ§Ã£o
 SELECT * FROM Livro right join Autor
 on Livro.cd_autor = Autor.cd_autor
 
@@ -164,7 +164,7 @@ inner join Livro
 on Emprestimo.cd_livro = Livro.cd_livro
 
 
--- ##Funções Agregadas##
+-- ##FunÃ§Ãµes Agregadas##
 
 SELECT cd_categoria, COUNT(cd_livro) FROM Livro
 GROUP BY cd_categoria
@@ -188,19 +188,19 @@ GROUP BY Categoria.nm_categoria
 
 
 
--- ##HAVING## Serve para buscar uma condição dentro da pesquisa GROUP BY
+-- ##HAVING## Serve para buscar uma condiÃ§Ã£o dentro da pesquisa GROUP BY
 SELECT Categoria.cd_categoria, Categoria.nm_categoria, COUNT(Livro.cd_livro) AS livro_quantidade FROM Livro JOIN Categoria 
 ON Livro.cd_categoria = Categoria.cd_categoria
 GROUP BY Categoria.cd_categoria, Categoria.nm_categoria
 HAVING COUNT(Livro.cd_livro) > 3
 
--- ##COMMIT e ROLLBACK TRANSAÇÕES##
-BEGIN TRANSACTION -- Inicia a Transação
+-- ##COMMIT e ROLLBACK TRANSAÃ‡Ã•ES##
+BEGIN TRANSACTION -- Inicia a TransaÃ§Ã£o
 
 UPDATE Livro SET vl_preco = vl_preco - 100 WHERE cd_livro = 1
 UPDATE Livro SET vl_preco = vl_preco + 100 WHERE cd_livro = 2
 
-COMMIT -- Confirma a Transação
+COMMIT -- Confirma a TransaÃ§Ã£o
 END TRY
 BEGIN CATCH
 

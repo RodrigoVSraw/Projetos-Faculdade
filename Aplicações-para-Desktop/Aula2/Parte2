@@ -1,0 +1,67 @@
+using System;
+
+namespace meu_primeiro_projeto
+{
+    public class contaBancaria
+    {
+        private decimal _saldo; // Atributo
+        private string _nome;
+        public contaBancaria(decimal saldoInicial, string nomeCliente) // Construtor
+        {
+            _saldo = saldoInicial;
+            _nome = nomeCliente;
+        }
+        public void Depositar(decimal valor) // Método
+        {
+            if (valor > 0)
+            {
+                _saldo = _saldo + valor;
+            }
+        }
+
+        public void Sacar(decimal valor) // Método
+        {
+            if (valor > 0)
+            {
+                _saldo = _saldo - valor;
+            }
+        }
+
+
+        public decimal verSaldo()
+        {
+            return _saldo;
+        }
+
+        public string verCliente()
+        {
+            return _nome;
+        }
+    }
+
+    class Principal
+    {
+        public static void Main(string[] args)
+        {
+            var minhaConta = new contaBancaria(0m, "João"); // Criando uma instância da classe contaBancaria
+            Console.WriteLine("Bem-vindo ao Banco XYZ!");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(minhaConta.verCliente());
+            Console.Write("Saldo Atual: ");
+            Console.WriteLine(minhaConta.verSaldo());
+
+            minhaConta.Depositar(1050.32m); // Depositando um valor
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(minhaConta.verCliente());
+            Console.Write("Saldo Atual: ");
+            Console.WriteLine(minhaConta.verSaldo());
+
+            minhaConta.Sacar(500.32m); // Sacando um valor
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(minhaConta.verCliente());
+            Console.Write("Saldo Atual: ");
+            Console.WriteLine(minhaConta.verSaldo());
+        }
+    }
+}
+

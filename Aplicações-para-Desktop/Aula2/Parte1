@@ -1,0 +1,51 @@
+using System;
+
+
+namespace meu_primeiro_projeto
+{
+    class Principal
+    {
+        public class Produto
+        {
+            public string Nome;
+            public decimal Preco;
+            public int Quantidade;
+            public void ExibirDetalhes()
+            {
+                Console.WriteLine("------------------------------");
+                Console.WriteLine($"Produto: {Nome}");
+                Console.WriteLine($"Preço: {Preco}");
+                Console.WriteLine($"Quantidade: {Quantidade}");
+            }
+        }
+        public static void Main(string[] args)
+        {
+            Produto produto1 = new Produto();
+
+
+            produto1.Nome = "Camiseta";
+            produto1.Preco = 29.99m;
+            produto1.Quantidade = 1;
+
+            Produto produto2 = new Produto
+            {
+                Nome = "Calça Jeans",
+                Preco = 79.99m,
+                Quantidade = 2
+            };
+
+            Produto produto3 = new Produto();
+
+
+            produto3.Nome = "Fone";
+            produto3.Preco = 99.99m;
+            produto3.Quantidade = 3;
+
+
+            Console.WriteLine("Detalhes dos Produtos:");
+            produto1.ExibirDetalhes();
+            produto2.ExibirDetalhes();
+            produto3.ExibirDetalhes();
+        }
+    }
+}

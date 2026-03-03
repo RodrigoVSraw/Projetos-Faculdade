@@ -1,0 +1,88 @@
+using System;
+namespace meu_primeiro_projeto
+{
+    public class Funcionario
+    {
+        //Atributo privado para armazenar o nome do funcionário, garantindo que ele seja inicializado corretamente através da propriedade Nome.
+        // o null!, informa ao compilador que a variável será inicializada posteriormente, evitando avisos de nulidade.
+
+        private string _nome = null!;
+        public string Nome
+        {
+            get { return _nome; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentNullException(nameof(value), "Nome não pode ser nulo ou vazio!");
+                   
+                    _nome = value;
+            }
+        }
+        
+        public string Cpf { get; }
+        public int Idade { get; private set; }
+        public decimal Salario { get; private set; }
+        public Funcionario(string nome, string cpf, decimal salario, int idade)
+        {
+            Nome = nome;
+            Cpf = cpf;
+            Salario = salario;
+            Idade = idade;
+        }
+
+        public void AtualizarIdade (int novaIdade)
+        {
+            if (novaIdade <= 18)
+            {
+                throw new ArgumentOutOfRangeException(nameof(novaIdade),
+               "Idade deve ser maior que 18!");
+            }
+            Idade = novaIdade;
+        }
+        
+        public void AtualizarSalario(decimal novoSalario)
+        {
+            if (novoSalario <= 0)
+                throw new ArgumentOutOfRangeException(nameof(novoSalario),
+               "Salário deve ser maior que zero!");
+            Salario = novoSalario;
+        }
+    }
+    class Principal
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Adicionando o novo funcionário: ");
+            Console.WriteLine("Nome: João Silva");
+            Console.WriteLine("CPF: 123.456.789-00");
+            Console.WriteLine("Salário: R$5.000,00");
+            var funcionario = new Funcionario("João Silva", "123.456.789-00",
+           5000m, 20);
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Funcionário Criado!");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Validando dados do Funcionário:");
+            Console.WriteLine($"Nome: {funcionario.Nome}");
+            Console.WriteLine($"Idade: {funcionario.Idade}");
+            Console.WriteLine($"CPF: {funcionario.Cpf}");
+            Console.WriteLine($"Salário: {funcionario.Salario:C}");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Alterando os dados do Funcionário:");
+            funcionario.Nome = "Maria Oliveira"; // Isso é permitido, pois a propriedade Nome tem um setter público.
+            // funcionario.Salario = 6500m; Isso não é permitido, pois a propriedade Salario tem um setter privado.
+            funcionario.AtualizarSalario(5500m); // Isso é permitido, pois o método AtualizarSalario tem acesso ao setter privado da propriedade Salario.
+            // funcionario.Cpf = "987.654.321-00"; Isso causará um erro de compilação, pois Cpf é somente leitura.
+            funcionario.AtualizarIdade(27);
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Funcionário Alterado!");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("Validando dados do Funcionário:");
+            Console.WriteLine($"Nome: {funcionario.Nome}");
+            Console.WriteLine($"Idade: {funcionario.Idade}");
+            Console.WriteLine($"CPF: {funcionario.Cpf}");
+            Console.WriteLine($"Salário: {funcionario.Salario:C}");
+            Console.WriteLine("------------------------------");
+        }
+    }
+}

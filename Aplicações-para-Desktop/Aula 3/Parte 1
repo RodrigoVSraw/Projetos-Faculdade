@@ -1,0 +1,71 @@
+using System;
+/* NOSSA CLASSE DE NEGÓCIO */
+public class ContaBancaria
+{
+    public string Titular { get; set; }
+
+    /* O Saldo é protegido. Ninguém altera de fora diretamente. */
+    public decimal Saldo { get; private set; }
+    public ContaBancaria(string titular)
+    {
+        Titular = titular;
+    }
+    public void Depositar(decimal valor)
+    {
+        if (valor <= 0)
+        {
+            /* Programação Defensiva: A classe recusa-se a trabalhar com dados
+           sujos. */
+            throw new ArgumentException("O valor do depósito deve ser maior que zero.");
+        }
+        Saldo += valor;
+    }
+    public void Sacar(decimal valor)
+    {
+        if (valor > Saldo)
+        {
+            /* A classe lança a exceção. Quem chamou o método que lide com ela. */
+            throw new InvalidOperationException("Saldo insuficiente para o saque.");
+        }
+        if (valor <= 0)
+        {
+            throw new InvalidOperationException("Saque só pode ser um valor positivo");
+        }
+
+        Saldo -= valor;
+    }
+}
+
+/* NOSSO PROGRAMA PRINCIPAL (A TELA DO UTILIZADOR) */
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("--- BEM-VINDO AO BANCO ---");
+        Console.Write("Digite o nome do titular: ");
+        string nome = Console.ReadLine();
+
+        ContaBancaria minhaConta = new ContaBancaria(nome);
+
+        /* Bloco de proteção: Tenta executar, se der erro, salta para o catch */
+        try
+        {
+            Console.Write("Digite o valor para depositar: ");
+            decimal valorDeposito = decimal.Parse(Console.ReadLine());
+            minhaConta.Depositar(valorDeposito);
+
+            Console.Write("Digite o valor para sacar: ");
+            decimal valorSaque = decimal.Parse(Console.ReadLine());
+            minhaConta.Sacar(valorSaque);
+
+            Console.WriteLine($"Sucesso! Saldo atual de {minhaConta.Titular}: { minhaConta.Saldo:C}");
+        }
+        catch (Exception ex)
+        {
+            /* Captura os erros lançados pelo 'throw' da classe e exibe
+           amigavelmente */
+            Console.WriteLine($"ERRO NA OPERAÇÃO: {ex.Message}");
+        }
+        Console.ReadLine();
+    }
+}

@@ -1,0 +1,87 @@
+using System;
+/* CLASSE MÃE REFATORADA */
+public class ContaBancaria
+{
+    public string Titular { get; set; }
+
+    /* Mudamos de 'private' para 'protected'. O mundo não vê, mas as filhas sim.
+   */
+    public decimal Saldo { get; protected set; }
+    public ContaBancaria(string titular)
+    {
+        Titular = titular;
+    }
+    public void Depositar(decimal valor)
+    {
+        if (valor <= 0) throw new ArgumentException("Valor inválido.");
+        Saldo += valor;
+    }
+    
+     public void Sacar(decimal valor)
+     {
+         if (valor > Saldo) throw new InvalidOperationException("Saldo insuficiente.");
+
+
+         Saldo -= valor;
+     }
+}
+/* CLASSE FILHA: O símbolo ':' indica Herança */
+public class ContaPoupanca : ContaBancaria
+{
+    public decimal TaxaRendimento { get; set; }
+    /* A palavra 'base' chama o construtor da classe mãe para preencher o Titular
+   */
+    public ContaPoupanca(string titular, decimal taxa) : base(titular)
+    {
+        TaxaRendimento = taxa;
+    }
+    public void AplicarRendimento()
+    {
+        /* Acesso direto ao Saldo porque ele é 'protected' na mãe */
+        decimal lucro = Saldo * TaxaRendimento;
+        Saldo += lucro;
+    }
+}
+
+public class ContaCorrente : ContaBancaria
+{
+    public ContaCorrente(string titular) : base(titular)
+    {
+
+    }
+}
+/* O PROGRAMA PRINCIPAL ATUALIZADO */
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.WriteLine("--- ABRINDO CONTA POUPANÇA ---");
+            Console.Write("Nome do Titular: ");
+            string nome = Console.ReadLine();
+            /* Criamos a classe filha (Poupança) com taxa de 5% */
+            ContaPoupanca poupanca = new ContaPoupanca(nome, 0.05m);
+
+            Console.Write("Valor do depósito inicial: ");
+            poupanca.Depositar(decimal.Parse(Console.ReadLine()));
+            /* O método AplicarRendimento só existe na Poupança */
+            Console.WriteLine("A aplicar rendimentos mensais...");
+            poupanca.AplicarRendimento();
+
+            Console.WriteLine("--------------------");
+            ContaCorrente corrente = new ContaCorrente("Rodrigo");
+            decimal correntesaldo = 0;
+            Console.Write("Digite o saldo inicial da Conta:");
+            correntesaldo.Depositar();
+
+            
+        Console.WriteLine($"Saldo após rendimento: {poupanca.Saldo:C}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"ERRO: {ex.Message}");
+        }
+        Console.ReadLine();
+    }
+}

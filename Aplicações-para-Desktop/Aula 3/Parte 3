@@ -1,0 +1,76 @@
+using System;
+/* CLASSE MÃE COM VIRTUAL */
+public class ContaBancaria
+{
+    public string Titular { get; set; }
+    public decimal Saldo { get; protected set; }
+    public ContaBancaria(string titular) { Titular = titular; }
+    public void Depositar(decimal valor)
+    {
+        if (valor <= 0) throw new ArgumentException("Valor inválido.");
+        Saldo += valor;
+    }
+    /* 'virtual' = Filhas, fiquem à vontade para alterar esta regra se precisarem
+   */
+    public virtual void Sacar(decimal valor)
+    {
+        if (valor > Saldo) throw new InvalidOperationException("Saldo insuficiente.");
+       
+        Saldo -= valor;
+    }
+}
+/* CLASSE POUPANÇA (Não quis alterar o saque, então continua igual ao anterior) */
+public class ContaPoupanca : ContaBancaria
+{
+    public ContaPoupanca(string titular) : base(titular) { }
+}
+
+/* NOVA CLASSE: CONTA CORRENTE (Vai alterar o saque) */
+public class ContaCorrente : ContaBancaria
+{
+    private decimal _taxaOperacao = 5.0m;
+    public ContaCorrente(string titular) : base(titular) { }
+    /* 'override' = Estou a reescrever a regra da minha mãe */
+    public override void Sacar(decimal valor)
+    {
+        decimal valorTotal = valor + _taxaOperacao;
+
+        /* 'base.Sacar' reaproveita a validação original do pai, passando o valor
+       somado */
+        base.Sacar(valorTotal);
+        Console.WriteLine($"[Aviso] Taxa de {_taxaOperacao:C} cobrada no saque.");
+    }
+}
+/* PROGRAMA PRINCIPAL TESTANDO O POLIMORFISMO */
+class Program
+{
+    /* MÁGICA: Este método aceita QUALQUER ContaBancaria (Mãe ou Filhas) */
+    static void EfetuarSaque(ContaBancaria conta, decimal valor)
+    {
+        Console.WriteLine($"\nA processar saque de {valor:C} para { conta.Titular} ...");
+    /* O C# vai descobrir sozinho qual é a conta e aplicar a regra certa! */
+ conta.Sacar(valor);
+        Console.WriteLine($"Saldo atualizado: {conta.Saldo:C}");
+    }
+    static void Main()
+    {
+        try
+        {
+            Console.WriteLine("--- TESTE DE POLIMORFISMO ---");
+
+            ContaPoupanca poupanca = new ContaPoupanca("Maria");
+            poupanca.Depositar(100);
+            ContaCorrente corrente = new ContaCorrente("João");
+            corrente.Depositar(100);
+            /* Repare que passamos objetos diferentes para o mesmo método! */
+            EfetuarSaque(poupanca, 50); /* Vai sacar 50 limpos */
+            EfetuarSaque(corrente, 50); /* Vai sacar 50 + 5 de taxa */
+        }
+
+ catch (Exception ex)
+        {
+            Console.WriteLine($"ERRO: {ex.Message}");
+        }
+        Console.ReadLine();
+    }
+}

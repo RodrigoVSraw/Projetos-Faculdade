@@ -1,0 +1,66 @@
+using System;
+/* 1. O CONTRATO (Sempre começa com 'I') */
+public interface ITributavel
+{
+    /* Apenas a assinatura. Quem assinar, tem que implementar. */
+    decimal CalcularImposto();
+}
+/* 2. A MÃE ABSTRATA */
+public abstract class ContaBancaria
+{
+    public string Titular { get; set; }
+    public decimal Saldo { get; protected set; }
+    public ContaBancaria(string titular) { Titular = titular; }
+    public void Depositar(decimal valor) { Saldo += valor; }
+
+    public virtual void Sacar(decimal valor)
+    {
+        Saldo -= valor;
+    }
+}
+
+/* 3. CONTA CORRENTE (Herda de ContaBancaria E assina ITributavel) */
+public class ContaCorrente : ContaBancaria, ITributavel
+{
+    public ContaCorrente(string titular) : base(titular) { }
+    /* OBRIGAÇÃO DA INTERFACE */
+    public decimal CalcularImposto()
+    {
+        return Saldo * 0.05m; /* Paga 5% sobre o saldo */
+    }
+}
+/* 4. SEGURO DE VIDA (Não herda de conta, mas assina ITributavel) */
+public class SeguroDeVida : ITributavel
+{
+    /* OBRIGAÇÃO DA INTERFACE */
+    public decimal CalcularImposto()
+    {
+        return 42.00m; /* Paga taxa fixa */
+    }
+}
+/* 5. O PROGRAMA PRINCIPAL RECOLHENDO IMPOSTOS */
+class Program
+{
+    /* POLIMORFISMO AVANÇADO: O método não pede uma Conta. Pede algo Tributável!
+   */
+    static void ProcessarImposto(ITributavel item)
+    {
+        decimal impostoCobrado = item.CalcularImposto();
+        Console.WriteLine($"Imposto processado com sucesso: {impostoCobrado:C}");
+    }
+    
+ static void Main()
+    {
+        Console.WriteLine("--- FECHAMENTO DO MÊS (IMPOSTOS) ---");
+        ContaCorrente minhaConta = new ContaCorrente("Maria");
+        minhaConta.Depositar(1000); /* Imposto será 50 */
+        SeguroDeVida meuSeguro = new SeguroDeVida(); /* Imposto será 42 */
+        Console.WriteLine("\n[Processar Conta Corrente da Maria]");
+        ProcessarImposto(minhaConta); /* O C# aceita porque a Conta assinou a
+Interface */
+        Console.WriteLine("\n[Processar Seguro de Vida]");
+        ProcessarImposto(meuSeguro); /* O C# aceita porque o Seguro assinou a
+Interface */
+        Console.ReadLine();
+    }
+}

@@ -1,0 +1,83 @@
+using System;
+/* 1. O CONTRATO (Sempre começa com 'I') */
+
+/* 2. A MÃE ABSTRATA */
+public abstract class ContaBancaria
+{
+    public string Titular { get; set; }
+    public decimal Saldo { get; protected set; }
+    public ContaBancaria(string titular) { Titular = titular; }
+    public void Depositar(decimal valor) { Saldo += valor; }
+    public virtual void Sacar(decimal valor)
+    { Saldo -= valor; }
+}
+/* 3. CONTA CORRENTE (Herda de ContaBancaria E assina ITributavel) */
+public class ContaCorrente : ContaBancaria
+{
+    public ContaCorrente(string titular) : base(titular)
+    {
+
+    }
+    /* OBRIGAÇÃO DA INTERFACE */
+    public override void Sacar(decimal valor)
+    {
+        if (valor <= 0)
+        {
+            throw new ArgumentException("Deu ruim! Valor inválido");
+        }
+        if (valor > Saldo)
+        {
+            throw new ArgumentException("Deu ruim! Valor inválido");
+        }
+        Saldo -= valor;
+    }
+}
+public class ContaPoupanca : ContaBancaria
+{
+    public ContaPoupanca (string titular) : base(titular)
+    {
+       
+    }
+
+    public void Rendimento(decimal taxa)
+    {
+        Saldo += taxa;
+    }
+}
+
+// rendimento
+/* 4. SEGURO DE VIDA (Não herda de conta, mas assina ITributavel) */
+
+/* 5. O PROGRAMA PRINCIPAL RECOLHENDO IMPOSTOS */
+class Program
+{
+    /* POLIMORFISMO AVANÇADO: O método não pede uma Conta. Pede algo Tributável!
+   */
+    static void MostraConta(ContaBancaria conta)
+    {
+        Console.Write("Titular da Conta: ");
+        Console.WriteLine(conta.Titular);
+        Console.Write("Saldo na conta: ");
+        Console.WriteLine(conta.Saldo);
+
+    }
+    static void Main()
+    {
+      
+        Console.WriteLine("Criando nova conta");
+        ContaCorrente CC = new ContaCorrente("Rodrigo");
+        Console.WriteLine("Colocando saldo na conta");
+        CC.Depositar(1000m);
+        Console.WriteLine("Sacando uma grana");
+        CC.Sacar(150m);
+        MostraConta(CC);
+
+        ContaPoupanca CP = new ContaPoupanca("Rodrigo");
+        CP.Depositar(2000m);
+        Console.WriteLine("Colocando saldo na conta");
+        CP.Rendimento(0.4m);
+        Console.WriteLine("Sacando uma grana");
+        CP.Sacar(200m);
+
+    }
+}
